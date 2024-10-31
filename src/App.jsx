@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import './App.css';
+import graphicDesignImg from './assets/images/4.png';
+import cartoonanimation from './assets/images/2.png';
+import illustration from './assets/images/3.png';
+import flyers from './assets/images/8.png';
+import logodesigning from './assets/images/1.png';
+import socialgraphics from './assets/images/5.png';
+import articlewriting from './assets/images/6.png';
+import videoediting from './assets/images/7.png';
+
+const categories = [
+  { name: 'Graphic & Design', image: graphicDesignImg },
+  { name: 'Cartoon Animation', image: cartoonanimation },
+  { name: 'Illustration', image: illustration },
+  { name: 'Flyers & Vouchers', image: flyers },
+  { name: 'Logo Design', image: logodesigning },
+  { name: 'Social Graphics', image: socialgraphics },
+  { name: 'Article Writing', image: articlewriting },
+  { name: 'Video Editing', image: videoediting },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App">
+      <h1>
+        Choose Different <span className="highlight">Category</span>
+      </h1>
+      <div className="categories-grid">
+        {categories.map((category, index) => (
+          <div key={index} className="category-card">
+            <img src={category.image} alt={category.name} />
+            <h2>{category.name}</h2>
+          </div>
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <button className="more-categories-button">More Categories</button>
+    </div>
+  );
 }
 
-export default App
+export default App;
